@@ -18,3 +18,5 @@ erl_crash.dump
 
 # runner file that I use for my work
 runner
+
+.elixir_ls/

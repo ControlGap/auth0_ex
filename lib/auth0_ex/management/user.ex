@@ -116,6 +116,15 @@ defmodule Auth0Ex.Management.User do
     do_get("#{@path}/#{user_id}/roles", params)
   end
 
+  @doc """
+   Associate roles with a user. Scopes: read:roles update:users
+
+      iex > Auth0Ex.Management.User.assign_roles(["roleid1", "rolid2"])
+  """
+  def assign_roles(user_id, params \\ []) do
+    do_post("#{@path}/#{user_id}/roles", %{roles: params})
+  end
+
   @doc false
   defp default_params do
     case Application.get_env(:auth0_ex, :v2_search) do
