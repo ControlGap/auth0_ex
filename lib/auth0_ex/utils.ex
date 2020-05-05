@@ -44,7 +44,7 @@ defmodule Auth0Ex.Utils do
   end
 
   def http_opts, do: get_config(:http_opts) || []
-  def ua, do: get_config(:user_agent) || "Auth0Ex <https://github.com/techgaun/auth0_ex>"
+  def ua, do: get_config(:user_agent) || "Auth0Ex"
 
   def req_header, do: [{"User-Agent", ua()}, {"Content-Type", "application/json"}]
   def req_header(:mgmt), do: [{"Authorization", "Bearer #{mgmt_token()}"}] ++ req_header()

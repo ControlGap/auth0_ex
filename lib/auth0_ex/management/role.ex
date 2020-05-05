@@ -1,25 +1,24 @@
-defmodule Auth0Ex.Management.Rule do
+defmodule Auth0Ex.Management.Role do
   @moduledoc """
   A module representing rule on Auth0
   """
   use Auth0Ex.Api, for: :mgmt
-  @path "rules"
+  @path "roles"
 
   @doc """
   Get all rules
 
-      iex> Auth0Ex.Management.Rule.all()
-      iex> Auth0Ex.Management.Rule.all(enabled: true, fields: "id,name")
+      iex> Auth0Ex.Management.Role.all()
+      iex> Auth0Ex.Management.Role.all(enabled: true, fields: "id,name")
   """
   def all(params \\ %{}) when is_map(params) or is_list(params) do
     do_get(@path, params)
   end
 
   @doc """
-  Get a rule
+  Get a role
 
-      iex> Auth0Ex.Management.Rule.get("some_rule")
-      iex> Auth0Ex.Management.Rule.get("some_rule", fields: "id,name")
+      iex> Auth0Ex.Management.Role.get("some_role_id")
   """
   def get(id) when is_binary(id), do: get(id, [])
 
@@ -31,7 +30,7 @@ defmodule Auth0Ex.Management.Rule do
   Create a rule
 
 
-      iex> Auth0Ex.Management.Role.create(%{name: "some_role", description: "some role description"})
+      iex> Auth0Ex.Management.Rule.create(%{name: "some_rule", script: "some_script_code"})
   """
   def create(body), do: do_post(@path, body)
 

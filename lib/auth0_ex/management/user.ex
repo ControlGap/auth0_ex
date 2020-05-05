@@ -125,6 +125,15 @@ defmodule Auth0Ex.Management.User do
     do_post("#{@path}/#{user_id}/roles", %{roles: params})
   end
 
+  @doc """
+   Removes roles from a user. Scopes: update:users
+
+      iex > Auth0Ex.Management.User.remove_roles(["roleid1"])
+  """
+  def remove_roles(user_id, roles_to_delete \\ []) do
+    do_delete("#{@path}/#{user_id}/roles", %{roles: roles_to_delete})
+  end
+
   @doc false
   defp default_params do
     case Application.get_env(:auth0_ex, :v2_search) do
