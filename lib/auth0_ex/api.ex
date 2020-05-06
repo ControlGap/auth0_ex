@@ -67,6 +67,16 @@ defmodule Auth0Ex.Api do
         do_request(:delete, path, params)
       end
 
+      @doc false
+      def do_delete(path, params, %{}) do
+        do_request(:delete, path, params)
+      end
+
+      @doc false
+      def do_delete(path, params, body) do
+        do_request(:delete, path, params, Jason.encode!(body))
+      end
+
       defp do_request(method, path, params \\ %{}, req_body \\ "") do
         uri = build_url(path, params)
 
