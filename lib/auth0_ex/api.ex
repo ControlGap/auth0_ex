@@ -68,7 +68,7 @@ defmodule Auth0Ex.Api do
       end
 
       @doc false
-      def do_delete(path, params, %{}) do
+      def do_delete(path, params, json_body) when map_size(json_body) == 0 do
         do_request(:delete, path, params)
       end
 
