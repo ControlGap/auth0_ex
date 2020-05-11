@@ -20,6 +20,9 @@ defmodule Auth0Ex.Parser do
       {:ok, %HTTPoison.Response{body: _, headers: _, status_code: 204}} ->
         :ok
 
+      {:ok, %HTTPoison.Response{body: body, headers: headers, status_code: 429}} ->
+        {:error, body, headers, 429}
+
       {:ok, %HTTPoison.Response{body: body, headers: _, status_code: status}} ->
         {:error, body, status}
 
