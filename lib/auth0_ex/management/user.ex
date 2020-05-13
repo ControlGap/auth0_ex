@@ -64,7 +64,7 @@ defmodule Auth0Ex.Management.User do
   end
 
   @doc """
-  Get all Guardain enrollments for given user_id
+  Get all Guardian enrollments for given user_id
 
       iex> Auth0Ex.Management.User.enrollments("auth0|234")
   """
